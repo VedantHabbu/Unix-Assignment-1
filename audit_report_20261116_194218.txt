@@ -1,0 +1,30 @@
+==================================================================
+ FILESYSTEM PERMISSION AUDIT REPORT
+==================================================================
+ Date        : 2026-11-16 19:42:18
+ Host / user : Vedant-Fedora / vedanthabbu
+ Scanned     : /home/vedanthabbu/unix-assignment-1-and-2/assignment-1/demo
+ Policy file : policy.conf
+ Mode        : AUDIT ONLY (no changes made)
+ Checks      : world_writable setuid executable tmp executable uploads 
+ Excluded    : /home/vedanthabbu/unix-assignment-1-and-2/assignment-1/demo/.cache /home/vedanthabbu/unix-assignment-1-and-2/assignment-1/demo/build
+------------------------------------------------------------------
+  1. [WORLD-WRITABLE] /home/vedanthabbu/unix-assignment-1-and-2/assignment-1/demo/uploads/my file.txt
+     owner=vedanthabbu  group=vedanthabbu  mode=777 (-rwxrwxrwx)
+     suggested fix: chmod o-w /home/vedanthabbu/unix-assignment-1-and-2/assignment-1/demo/uploads/my\ file.txt
+  2. [SETUID/SETGID] /home/vedanthabbu/unix-assignment-1-and-2/assignment-1/demo/bin/suid_tool
+     owner=vedanthabbu  group=vedanthabbu  mode=4755 (-rwsr-xr-x)
+     suggested fix: chmod ug-s /home/vedanthabbu/unix-assignment-1-and-2/assignment-1/demo/bin/suid_tool
+  3. [EXEC-IN-tmp] /home/vedanthabbu/unix-assignment-1-and-2/assignment-1/demo/tmp/run.sh
+     owner=vedanthabbu  group=vedanthabbu  mode=755 (-rwxr-xr-x)
+     suggested fix: chmod a-x /home/vedanthabbu/unix-assignment-1-and-2/assignment-1/demo/tmp/run.sh
+  4. [EXEC-IN-uploads] /home/vedanthabbu/unix-assignment-1-and-2/assignment-1/demo/uploads/my file.txt
+     owner=vedanthabbu  group=vedanthabbu  mode=777 (-rwxrwxrwx)
+     suggested fix: chmod a-x /home/vedanthabbu/unix-assignment-1-and-2/assignment-1/demo/uploads/my\ file.txt
+------------------------------------------------------------------
+ SUMMARY: 4 anomalies found
+   EXEC-IN-tmp                  1
+   EXEC-IN-uploads              1
+   SETUID/SETGID                1
+   WORLD-WRITABLE               1
+==================================================================
